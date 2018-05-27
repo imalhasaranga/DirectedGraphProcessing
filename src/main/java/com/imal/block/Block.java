@@ -1,9 +1,16 @@
+package com.imal.block;
+
+import com.imal.ref.Referance;
+import com.imal.ref.S3Ref;
+
+import java.util.List;
+
 /**
  * Created by imal365 on 5/27/18.
  */
 public class Block extends AbstractBlock {
 
-    Block(String id){
+    public Block(String id){
         super(id);
     }
 

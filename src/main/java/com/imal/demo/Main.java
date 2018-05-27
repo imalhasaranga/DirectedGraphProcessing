@@ -1,3 +1,16 @@
+package com.imal.demo;
+
+import com.imal.block.AbstractBlock;
+import com.imal.block.Block;
+import com.imal.blockimpl.BlockA;
+import com.imal.blockimpl.BlockB;
+import com.imal.blockimpl.BlockC;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static com.imal.block.AbstractBlock.FEED;
+import static com.imal.block.AbstractBlock.FEED.gN;
 /**
  * Created by imal365 on 5/27/18.
  */
@@ -6,10 +19,10 @@ public class Main {
     public static void main(String[] args) {
 
 
-        //demo1();
+        demo1();
         demo2();
 
-
+        demo3();
     }
 
     public static void demo1(){
@@ -43,6 +56,7 @@ public class Main {
         F.addChild(G);
 
         A.doprocess();
+        System.out.println("=================================");
     }
 
 
@@ -99,6 +113,27 @@ public class Main {
         L.addChild(M);
 
 
+        A.doprocess();
+        System.out.println("=================================");
+    }
+
+    public static void demo3(){
+
+        /*
+        *   A -> B -> C
+        * */
+
+        BlockA A= new BlockA("A");
+        BlockB B= new BlockB("B");
+        BlockC C= new BlockC("C");
+
+
+
+        //String[] inputsFromA = new String[]{ "video" , "image_0" , "image_1" };
+        String[] inputsFromA = new String[]{FEED.VIDEO, gN(FEED.IMAGE,0), gN(FEED.IMAGE,1) };
+        A.addChild(B,inputsFromA);
+        String[] inputsFromB = new String[]{gN(FEED.VIDEO,0), gN(FEED.VIDEO,1)};
+        B.addChild(C,inputsFromB);
         A.doprocess();
     }
 }
