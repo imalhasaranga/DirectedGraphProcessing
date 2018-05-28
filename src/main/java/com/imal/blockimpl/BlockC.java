@@ -1,6 +1,7 @@
 package com.imal.blockimpl;
 
 import com.imal.block.AbstractBlock;
+import com.imal.block.AbstractIOBlock;
 import com.imal.ref.Referance;
 import com.imal.ref.S3Ref;
 
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by imal365 on 5/28/18.
  */
-public class BlockC extends AbstractBlock {
+public class BlockC extends AbstractIOBlock {
 
     public BlockC(String id){
         super(id);

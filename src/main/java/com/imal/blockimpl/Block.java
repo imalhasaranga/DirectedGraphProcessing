@@ -1,5 +1,7 @@
-package com.imal.block;
+package com.imal.blockimpl;
 
+import com.imal.block.AbstractBlock;
+import com.imal.block.BlockException;
 import com.imal.ref.Referance;
 import com.imal.ref.S3Ref;
 
@@ -14,7 +16,7 @@ public class Block extends AbstractBlock {
         super(id);
     }
 
-    public void process() {
+    public void process(){
         System.out.println("I'm processed : "+getId());
     }
 }

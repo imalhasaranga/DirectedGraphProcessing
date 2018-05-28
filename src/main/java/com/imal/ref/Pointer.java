@@ -16,6 +16,10 @@ public class Pointer implements Referance{
     }
 
     public Referance getReferance() {
-        return params.get(key);
+        Referance r = params.get(key);
+        if(r instanceof Pointer){
+            throw new RuntimeException("There can't be non resolved Referances by the time getReferance() called");
+        }
+        return r;
     }
 }

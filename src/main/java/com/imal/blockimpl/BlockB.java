@@ -1,6 +1,8 @@
 package com.imal.blockimpl;
 
 import com.imal.block.AbstractBlock;
+import com.imal.block.AbstractIOBlock;
+import com.imal.block.BlockException;
 import com.imal.ref.Referance;
 import com.imal.ref.S3Ref;
 import com.imal.ref.UrlRef;
@@ -11,7 +13,7 @@ import java.util.List;
 /**
  * Created by imal365 on 5/28/18.
  */
-public class BlockB extends AbstractBlock {
+public class BlockB extends AbstractIOBlock {
 
     public BlockB(String id){
         super(id);
@@ -19,7 +21,7 @@ public class BlockB extends AbstractBlock {
         setOutputKeys(FEED.VIDEO_X);
     }
 
-    public void process() {
+    public void process() throws BlockException{
         Referance video = findInputReferance(FEED.VIDEO);
         List<Referance> images = findMultipleInputReferance(FEED.IMAGE_X);
 
@@ -30,5 +32,9 @@ public class BlockB extends AbstractBlock {
         }
         addOutputReferances(FEED.VIDEO+"_0", new S3Ref("com.bhagya.matta","cde/dedf/B_1_output.mov"));
         addOutputReferances(FEED.VIDEO+"_1", new UrlRef("http://imalhasaranga.com"));
+
+        if(getId().equals("B")){
+            throw new BlockException("i'm throwing an exception : "+getId());
+        }
     }
 }

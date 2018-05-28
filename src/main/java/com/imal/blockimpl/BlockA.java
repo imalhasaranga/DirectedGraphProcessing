@@ -1,13 +1,14 @@
 package com.imal.blockimpl;
 
 import com.imal.block.AbstractBlock;
+import com.imal.block.AbstractIOBlock;
 import com.imal.ref.Referance;
 import com.imal.ref.S3Ref;
 
 /**
  * Created by imal365 on 5/28/18.
  */
-public class BlockA extends AbstractBlock {
+public class BlockA extends AbstractIOBlock {
 
     public BlockA(String id){
         super(id);
